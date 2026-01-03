@@ -232,6 +232,8 @@ pub fn build(b: *std.Build) void {
             .flags = &flags,
         });
     }
+    zip.installHeader(libzip_dep.path("lib/zip.h"), "zip.h");
+    zip.installHeader(zipconf_h.getOutputFile(), "zipconf.h");
 
     b.installArtifact(zip);
 
